@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Three Word Index is an early-stage open-source experiment in human-first publishing, three-word addressing, browser-side computation, and scalable community systems.">
-  <meta name="theme-color" content="#07111f">
-  <title>Three Word Index | Build a Human-First Web Space</title>
+  <meta name="theme-color" content="#f5f7fa">
+  <title>Three Word Index | Open Source Developer Project</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
 </head>
@@ -28,37 +28,38 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
         <a href="#idea">The idea</a>
-        <a href="#challenges">Technical challenges</a>
+        <a href="#challenges">Architecture</a>
         <a href="#contribute">Contribute</a>
         <a href="#roadmap">Roadmap</a>
-        <a class="button button-small button-ghost" href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button button-small button-outline" href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
     <section class="hero section" id="top">
-      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow">Early-stage open-source project</div>
-          <h1>Build a human-first space on the web.</h1>
+          <div class="status-line"><span></span> Early-stage open-source project</div>
+          <h1 class="word-pills hero-title" aria-label="Three Word Index">
+            <span>Three</span><span>Word</span><span>Index</span>
+          </h1>
           <p class="hero-lede">
-            Three Word Index is an open-source publishing platform where every page has a memorable three-word address, content is assembled from independent blocks, and bulk automated harvesting is intentionally made harder.
+            A human-first publishing platform where every page has a memorable three-word address, content is assembled from independent blocks, and industrial-scale harvesting is intentionally made harder.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">View the repository</a>
-            <a class="button button-secondary" href="#contribute">Find your contribution</a>
+            <a class="button button-primary" href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="button button-secondary" href="#contribute">See contribution areas</a>
           </div>
           <ul class="hero-points" aria-label="Project highlights">
-            <li>Founder-led</li>
-            <li>Community-built</li>
-            <li>Open architecture</li>
+            <li>Open source</li>
+            <li>Privacy aware</li>
+            <li>Community built</li>
           </ul>
         </div>
 
-        <div class="hero-visual reveal" aria-label="A three-word page address represented as a modular digital structure">
+        <div class="hero-visual reveal" aria-label="Three connected modules representing a three-word web address">
           <div class="address-panel">
             <span class="address-label">Example destination</span>
             <button class="address" type="button" data-copy-address aria-label="Copy threewordindex.com/model/rocket/design">
@@ -68,116 +69,111 @@
             <span class="copy-note" data-copy-note>Click to copy</span>
           </div>
 
-          <div class="system-orbit" aria-hidden="true">
-            <div class="orbit-line orbit-line-one"></div>
-            <div class="orbit-line orbit-line-two"></div>
-            <div class="orbit-node node-one"></div>
-            <div class="orbit-node node-two"></div>
-            <div class="orbit-node node-three"></div>
+          <div class="module-platform" aria-hidden="true">
+            <div class="platform-ring ring-one"></div>
+            <div class="platform-ring ring-two"></div>
+            <div class="platform-ring ring-three"></div>
+            <div class="signal signal-one"></div>
+            <div class="signal signal-two"></div>
+            <div class="signal signal-three"></div>
 
-            <div class="core-cube">
-              <div class="cube-face cube-front"><span>3</span></div>
-              <div class="cube-face cube-right"><span>W</span></div>
-              <div class="cube-face cube-top"><span>I</span></div>
+            <div class="module-stack">
+              <div class="module-unit module-one">
+                <span class="module-word">model</span>
+                <span class="module-icon">▤</span>
+              </div>
+              <div class="module-unit module-two">
+                <span class="module-word">rocket</span>
+                <span class="module-icon">&lt;/&gt;</span>
+              </div>
+              <div class="module-unit module-three">
+                <span class="module-word">design</span>
+                <span class="module-icon">◇</span>
+              </div>
             </div>
 
-            <div class="floating-card card-one">
-              <strong>content_block</strong>
-              <span>Independent mini-project</span>
-            </div>
-            <div class="floating-card card-two">
-              <strong>Browser compute</strong>
-              <span>Web Workers + streams</span>
-            </div>
-            <div class="floating-card card-three">
-              <strong>Open source</strong>
-              <span>Shape the foundation</span>
-            </div>
+            <div class="orbit-label">threewordindex.com/model/rocket/design</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="idea">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">The idea in 30 seconds</div>
-          <h2>A public place addressed by three words.</h2>
-          <p>Simple for a person to remember. Flexible enough to hold a community, project, reference collection, or conversation.</p>
+    <section class="section panel-section" id="idea">
+      <div class="container panel-shell reveal">
+        <div class="panel-copy">
+          <h2 class="word-pills section-title" aria-label="Human First Space">
+            <span>Human</span><span>First</span><span>Space</span>
+          </h2>
+          <p>Three memorable words create the front door. Independent content blocks create everything behind it.</p>
+          <a class="text-link" href="#challenges">Learn how it works <span aria-hidden="true">→</span></a>
         </div>
 
-        <div class="idea-grid">
-          <article class="feature-card reveal">
-            <span class="card-number">01</span>
-            <h3>Three-word destinations</h3>
-            <p>Every page is identified by exactly three words, such as <code>/model/rocket/design</code>.</p>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <div class="metric-icon" aria-hidden="true">◎</div>
+            <h3>Memorable by design</h3>
+            <p>Short, readable destinations people can remember and share.</p>
           </article>
-          <article class="feature-card reveal">
-            <span class="card-number">02</span>
-            <h3>Modular content</h3>
-            <p>Pages are assembled from independent <code>content_block</code> units for text, code, links, media, and files.</p>
+          <article class="metric-card">
+            <div class="metric-icon" aria-hidden="true">⬡</div>
+            <h3>Resilient by default</h3>
+            <p>Browser-side work increases friction for bulk automated extraction.</p>
           </article>
-          <article class="feature-card reveal">
-            <span class="card-number">03</span>
-            <h3>Human-scale friction</h3>
-            <p>The platform explores browser-side work and delivery patterns that increase the cost of industrial-scale harvesting.</p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="card-number">04</span>
-            <h3>Community-supported visibility</h3>
-            <p>Content remains visible through an experimental display-token system that decays through real attention.</p>
+          <article class="metric-card">
+            <div class="metric-icon" aria-hidden="true">ϟ</div>
+            <h3>Modular by nature</h3>
+            <p>Pages are assembled from small, reusable, independently maintained blocks.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="challenges">
-      <div class="container">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <div class="eyebrow">Why developers may care</div>
-            <h2>Interesting problems—not another CRUD demo.</h2>
-          </div>
-          <p>The project combines browser performance, distributed content, community economics, security boundaries, and moderation architecture.</p>
+    <section class="section panel-section" id="challenges">
+      <div class="container panel-shell panel-shell-stacked reveal">
+        <div class="panel-copy wide-copy">
+          <h2 class="word-pills section-title" aria-label="Technical Challenge Stack">
+            <span>Technical</span><span>Challenge</span><span>Stack</span>
+          </h2>
+          <p>This is not another basic CRUD demo. The project combines browser computation, scalable content delivery, trusted economic events, privacy, and moderation architecture.</p>
         </div>
 
         <div class="challenge-grid">
-          <article class="challenge-card reveal">
-            <div class="icon-shell" aria-hidden="true">↯</div>
+          <article class="challenge-card">
+            <div class="card-index">01</div>
             <h3>Browser computation</h3>
             <ul>
               <li>Web Workers</li>
               <li>Large-number arithmetic</li>
               <li>XOR stream generation</li>
-              <li>Lazy content deciphering</li>
+              <li>Lazy deciphering</li>
             </ul>
           </article>
-          <article class="challenge-card reveal">
-            <div class="icon-shell" aria-hidden="true">◇</div>
+          <article class="challenge-card">
+            <div class="card-index">02</div>
             <h3>Scalable content</h3>
             <ul>
               <li>Three-word routing</li>
               <li>MongoDB partitioning</li>
               <li>Hot-page caching</li>
-              <li>Immutable content versions</li>
+              <li>Immutable versions</li>
             </ul>
           </article>
-          <article class="challenge-card reveal">
-            <div class="icon-shell" aria-hidden="true">◎</div>
-            <h3>Trusted economic events</h3>
+          <article class="challenge-card">
+            <div class="card-index">03</div>
+            <h3>Trusted events</h3>
             <ul>
-              <li>Server-authoritative ledgers</li>
-              <li>Idempotent event handling</li>
-              <li>Bot-resistant display accounting</li>
-              <li>Fraud and rate-limit controls</li>
+              <li>Append-only ledgers</li>
+              <li>Idempotent handling</li>
+              <li>Bot-resistant accounting</li>
+              <li>Fraud controls</li>
             </ul>
           </article>
-          <article class="challenge-card reveal">
-            <div class="icon-shell" aria-hidden="true">⌁</div>
+          <article class="challenge-card">
+            <div class="card-index">04</div>
             <h3>Community systems</h3>
             <ul>
               <li>Anonymous participation</li>
-              <li>Accessible contribution tools</li>
+              <li>Accessible workflows</li>
               <li>Auditable moderation</li>
               <li>Privacy-aware identity</li>
             </ul>
@@ -186,18 +182,17 @@
       </div>
     </section>
 
-    <section class="section content-block-section" id="contribute">
-      <div class="container">
-        <div class="content-block-callout reveal">
-          <div class="callout-copy">
-            <div class="eyebrow">A small project inside the larger project</div>
-            <h2>Pick one content block. Make it yours.</h2>
-            <p>
-              You do not need to understand the entire platform. A single <code>content_block</code> can be a focused mini-project with its own component, editing experience, validation, accessibility, tests, and documentation.
-            </p>
-            <a class="text-link" href="https://github.com/Errorline10/GPT-three-word-index/issues" target="_blank" rel="noreferrer">Browse contribution opportunities <span aria-hidden="true">→</span></a>
-          </div>
+    <section class="section panel-section" id="contribute">
+      <div class="container panel-shell content-shell reveal">
+        <div class="panel-copy">
+          <h2 class="word-pills section-title" aria-label="Build Content Blocks">
+            <span>Build</span><span>Content</span><span>Blocks</span>
+          </h2>
+          <p>One block can be a complete mini-project. You do not need to understand the entire platform to contribute something real.</p>
+          <a class="text-link" href="https://github.com/Errorline10/GPT-three-word-index/issues" target="_blank" rel="noreferrer">Explore block projects <span aria-hidden="true">→</span></a>
+        </div>
 
+        <div class="block-lab">
           <div class="block-picker" aria-label="Example content block projects">
             <button type="button" class="block-chip is-active" data-block="Text">Text</button>
             <button type="button" class="block-chip" data-block="Markdown">Markdown</button>
@@ -207,38 +202,47 @@
             <button type="button" class="block-chip" data-block="Video">Video</button>
             <button type="button" class="block-chip" data-block="Audio">Audio</button>
             <button type="button" class="block-chip" data-block="File">File</button>
-            <div class="block-preview" aria-live="polite">
-              <span class="preview-label">Selected mini-project</span>
-              <strong data-block-output>Text Content Block</strong>
-              <p>Component design · accessibility · validation · tests · documentation</p>
-            </div>
           </div>
-        </div>
-
-        <div class="section-heading reveal contribution-heading">
-          <div class="eyebrow">More ways to contribute</div>
-          <h2>Choose the part that fits your skills.</h2>
-        </div>
-
-        <div class="contribution-grid">
-          <article class="contribution-card reveal"><h3>Front end</h3><p>React components, CSS Modules, responsive layouts, accessibility, and interaction design.</p></article>
-          <article class="contribution-card reveal"><h3>Back end</h3><p>TypeScript APIs, page manifests, rate limiting, queues, and modular service boundaries.</p></article>
-          <article class="contribution-card reveal"><h3>Data architecture</h3><p>MongoDB schemas, page buckets, indexing, PostgreSQL ledgers, and migration tools.</p></article>
-          <article class="contribution-card reveal"><h3>Security</h3><p>Threat modeling, abuse resistance, audit logging, event validation, and responsible disclosure.</p></article>
-          <article class="contribution-card reveal"><h3>Design and UX</h3><p>Interface concepts, design systems, contributor journeys, and clear human-centered workflows.</p></article>
-          <article class="contribution-card reveal"><h3>Documentation</h3><p>Developer onboarding, diagrams, architecture notes, tutorials, and contributor guides.</p></article>
+          <div class="block-preview" aria-live="polite">
+            <span class="preview-label">Selected mini-project</span>
+            <strong data-block-output>Text Content Block</strong>
+            <p>Component design · accessibility · validation · tests · documentation</p>
+            <div class="preview-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="experience">
-      <div class="container experience-grid">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Build visible experience</div>
-          <h2>Do meaningful work people can see.</h2>
+    <section class="section panel-section" id="paths">
+      <div class="container panel-shell panel-shell-stacked reveal">
+        <div class="panel-copy wide-copy">
+          <h2 class="word-pills section-title" aria-label="Choose Your Path">
+            <span>Choose</span><span>Your</span><span>Path</span>
+          </h2>
+          <p>Contribute across the platform or take ownership of one focused area.</p>
+        </div>
+
+        <div class="contribution-grid">
+          <article class="contribution-card"><span>UI</span><h3>Front end</h3><p>React components, responsive layouts, accessibility, and interaction design.</p></article>
+          <article class="contribution-card"><span>API</span><h3>Back end</h3><p>TypeScript services, manifests, queues, rate limits, and modular boundaries.</p></article>
+          <article class="contribution-card"><span>DB</span><h3>Data architecture</h3><p>MongoDB schemas, page buckets, PostgreSQL ledgers, and migrations.</p></article>
+          <article class="contribution-card"><span>SEC</span><h3>Security</h3><p>Threat modeling, abuse resistance, audit logging, and event validation.</p></article>
+          <article class="contribution-card"><span>UX</span><h3>Design</h3><p>Design systems, contributor journeys, and clear human-centered workflows.</p></article>
+          <article class="contribution-card"><span>DOC</span><h3>Documentation</h3><p>Onboarding, diagrams, architecture notes, tutorials, and contributor guides.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section" id="experience">
+      <div class="container panel-shell experience-shell reveal">
+        <div class="panel-copy">
+          <h2 class="word-pills section-title" aria-label="Visible Career Proof">
+            <span>Visible</span><span>Career</span><span>Proof</span>
+          </h2>
           <p>Accepted contributions remain visible through commits, pull requests, release notes, contributor credits, and ownership of real components.</p>
         </div>
-        <div class="experience-list reveal">
+
+        <div class="experience-list">
           <div><span>01</span><p>Public GitHub work you can discuss in interviews.</p></div>
           <div><span>02</span><p>Focused mini-projects that can become portfolio pieces.</p></div>
           <div><span>03</span><p>Opportunities to grow into component ownership or maintainership.</p></div>
@@ -247,98 +251,82 @@
       </div>
     </section>
 
-    <section class="section" id="roadmap">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Current roadmap</div>
-          <h2>Start small. Prove the core. Scale deliberately.</h2>
+    <section class="section panel-section" id="roadmap">
+      <div class="container panel-shell panel-shell-stacked reveal">
+        <div class="panel-copy wide-copy">
+          <h2 class="word-pills section-title" aria-label="Project Growth Path">
+            <span>Project</span><span>Growth</span><span>Path</span>
+          </h2>
+          <p>Start small. Prove the core. Scale only when the architecture and economics can support it.</p>
         </div>
+
         <ol class="roadmap">
-          <li class="reveal">
-            <span class="roadmap-marker">1</span>
-            <div><strong>Contributor foundation</strong><p>Promotional site, project documentation, contribution workflow, and well-scoped starter issues.</p></div>
-          </li>
-          <li class="reveal">
-            <span class="roadmap-marker">2</span>
-            <div><strong>Core prototype</strong><p>Three-word routing, page manifests, content blocks, and browser-side sequence experiments.</p></div>
-          </li>
-          <li class="reveal">
-            <span class="roadmap-marker">3</span>
-            <div><strong>Community systems</strong><p>Posting, discovery, ranking, moderation, and anonymous participation.</p></div>
-          </li>
-          <li class="reveal">
-            <span class="roadmap-marker">4</span>
-            <div><strong>Sustainable operation</strong><p>Cache-first scaling, controlled costs, ad verification, contributor funding experiments, and public operating metrics.</p></div>
-          </li>
+          <li><span class="roadmap-marker">1</span><div><strong>Contributor foundation</strong><p>Documentation, contribution workflow, promotional site, and well-scoped starter issues.</p></div></li>
+          <li><span class="roadmap-marker">2</span><div><strong>Core prototype</strong><p>Three-word routing, manifests, content blocks, and browser-side sequence experiments.</p></div></li>
+          <li><span class="roadmap-marker">3</span><div><strong>Community systems</strong><p>Posting, discovery, ranking, moderation, and anonymous participation.</p></div></li>
+          <li><span class="roadmap-marker">4</span><div><strong>Sustainable operation</strong><p>Cache-first scaling, controlled costs, verified ads, and contributor funding experiments.</p></div></li>
         </ol>
       </div>
     </section>
 
-    <section class="section principles-section" id="principles">
-      <div class="container principles-grid">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Project principles</div>
-          <h2>Open experimentation with clear boundaries.</h2>
+    <section class="section panel-section" id="principles">
+      <div class="container panel-shell panel-shell-stacked reveal">
+        <div class="panel-copy wide-copy">
+          <h2 class="word-pills section-title" aria-label="Open Design Principles">
+            <span>Open</span><span>Design</span><span>Principles</span>
+          </h2>
+          <p>Experimental where useful. Conventional where trust and safety matter.</p>
         </div>
-        <div class="principle-cards">
-          <article class="principle-card reveal"><h3>Human-first</h3><p>Optimize for people reading, sharing, and building communities—not for behavioral extraction.</p></article>
-          <article class="principle-card reveal"><h3>Technically honest</h3><p>No claim of perfect bot prevention, secrecy, or magical encryption.</p></article>
-          <article class="principle-card reveal"><h3>Standard security</h3><p>Experimental content friction stays separate from account, payment, and financial security.</p></article>
-          <article class="principle-card reveal"><h3>Low-cost by design</h3><p>The platform should remain viable as a hobby project and scale only when its economics support growth.</p></article>
+
+        <div class="principle-grid">
+          <article><div class="principle-symbol">○</div><h3>Human-first</h3><p>Optimize for people reading, sharing, and building communities.</p></article>
+          <article><div class="principle-symbol">△</div><h3>Technically honest</h3><p>No promise of perfect bot prevention, secrecy, or magical encryption.</p></article>
+          <article><div class="principle-symbol">□</div><h3>Standard security</h3><p>Accounts, payments, sessions, and ledgers use established protections.</p></article>
+          <article><div class="principle-symbol">◇</div><h3>Low-cost by design</h3><p>The platform should remain viable as a hobby project at every stage.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="governance">
-      <div class="container governance-grid">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Funding and governance</div>
-          <h2>Founder-led. Community-built. Transparently operated.</h2>
+    <section class="section panel-section" id="governance">
+      <div class="container panel-shell governance-shell reveal">
+        <div class="panel-copy">
+          <h2 class="word-pills section-title" aria-label="Funding Trust Clarity">
+            <span>Funding</span><span>Trust</span><span>Clarity</span>
+          </h2>
+          <p>Founder-led, community-built, and transparent about how money and ownership work.</p>
         </div>
-        <div class="governance-copy reveal">
+        <div class="governance-copy">
           <p>Three Word Index is currently a founder-funded, volunteer-supported open-source project. Contributions do not automatically create employment, equity, ownership, or revenue-sharing rights.</p>
-          <p>If the hosted project generates revenue, funds will first support infrastructure, security, compliance, moderation, and a responsible operating reserve. Contributor bounties, contracts, or funded maintainer work may follow when resources permit.</p>
+          <p>If the hosted project generates revenue, funds first support infrastructure, security, compliance, moderation, and a responsible operating reserve. Contributor bounties or paid work may follow when resources permit.</p>
         </div>
       </div>
     </section>
 
-    <section class="section faq-section" id="faq">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Frequently asked questions</div>
-          <h2>Before you jump in.</h2>
+    <section class="section panel-section" id="faq">
+      <div class="container panel-shell panel-shell-stacked reveal">
+        <div class="panel-copy wide-copy">
+          <h2 class="word-pills section-title" aria-label="Common Project Questions">
+            <span>Common</span><span>Project</span><span>Questions</span>
+          </h2>
         </div>
+
         <div class="faq-list">
-          <details class="reveal">
-            <summary>Is this supposed to make bots impossible?</summary>
-            <p>No. The goal is to increase the cost and inconvenience of bulk automated extraction while keeping normal human use practical.</p>
-          </details>
-          <details class="reveal">
-            <summary>Do I need to understand the entire architecture?</summary>
-            <p>No. You can contribute documentation, design, tests, infrastructure, or take ownership of one small content-block mini-project.</p>
-          </details>
-          <details class="reveal">
-            <summary>Is this cryptocurrency?</summary>
-            <p>No. The proposed coin and display-token systems are internal platform accounting mechanisms, not speculative cryptocurrency.</p>
-          </details>
-          <details class="reveal">
-            <summary>Are contributors paid?</summary>
-            <p>Contributions are currently voluntary. Future funding may support bounties, contracts, grants, or maintainer work, but no payment or employment is promised.</p>
-          </details>
-          <details class="reveal">
-            <summary>Can students and newer developers contribute?</summary>
-            <p>Yes. The project intends to maintain small issues, documentation tasks, testing work, and self-contained component projects suitable for different experience levels.</p>
-          </details>
+          <details><summary>Is this supposed to make bots impossible?</summary><p>No. The goal is to increase the cost and inconvenience of bulk automated extraction while keeping normal human use practical.</p></details>
+          <details><summary>Do I need to understand the entire architecture?</summary><p>No. You can contribute documentation, design, tests, infrastructure, or take ownership of one small content-block mini-project.</p></details>
+          <details><summary>Is this cryptocurrency?</summary><p>No. The proposed coin and display-token systems are internal platform accounting mechanisms, not speculative cryptocurrency.</p></details>
+          <details><summary>Are contributors paid?</summary><p>Contributions are currently voluntary. Future funding may support bounties, contracts, grants, or maintainer work, but no payment or employment is promised.</p></details>
+          <details><summary>Can students and newer developers contribute?</summary><p>Yes. The project intends to maintain small issues, documentation tasks, testing work, and self-contained component projects for different experience levels.</p></details>
         </div>
       </div>
     </section>
 
     <section class="section final-cta">
-      <div class="container final-cta-inner reveal">
+      <div class="container final-cta-shell reveal">
         <div>
-          <div class="eyebrow">Help shape the foundation</div>
-          <h2>Bring one skill. Pick one problem. Build something real.</h2>
-          <p>The project is early enough that thoughtful contributors can still influence its architecture, interface, and community norms.</p>
+          <h2 class="word-pills section-title" aria-label="Shape The Foundation">
+            <span>Shape</span><span>The</span><span>Foundation</span>
+          </h2>
+          <p>Bring one skill. Pick one problem. Build something real while the project is still early enough to influence.</p>
         </div>
         <div class="final-actions">
           <a class="button button-primary" href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">Open GitHub</a>
@@ -350,19 +338,16 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <a class="brand footer-brand" href="#top">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span>Three Word Index</span>
-        </a>
-        <p>An early-stage open-source experiment in human-first publishing.</p>
-      </div>
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Three Word Index</span>
+      </a>
       <div class="footer-links">
         <a href="https://github.com/Errorline10/GPT-three-word-index" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://github.com/Errorline10/GPT-three-word-index/issues" target="_blank" rel="noreferrer">Issues</a>
         <a href="mailto:errorline10@gmail.com">errorline10@gmail.com</a>
       </div>
-      <p class="copyright">© <span data-year></span> Three Word Index</p>
+      <p>© <span data-year></span> Three Word Index</p>
     </div>
   </footer>
 </body>
