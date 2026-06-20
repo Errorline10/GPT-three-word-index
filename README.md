@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+# Three Word Index
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Three Word Index is an experimental, human-oriented public publishing system where logical pages are addressed by three words.
 
-## Get started
+This repository now uses a browser-first React and TypeScript foundation built with Vite. The old Expo starter and duplicated legacy application trees have been removed.
 
-1. Install dependencies
+## Repository structure
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+src/                              React application
+lookup-tables/                    Canonical lookup-table assets
+sandbox/large-number-library/     Isolated legacy arithmetic library
+openSource-Dev-Promotion/         Independent static promotional site
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The promotional site and its GitHub Pages workflow are intentionally separate from the React application. Do not couple its build or deployment to the Vite app without an explicit project decision.
 
-## Learn more
+## Development
 
-To learn more about developing your project with Expo, look at the following resources:
+Requirements:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Node.js 22 or newer
+- npm
 
-## Join the community
+```bash
+npm install
+npm run dev
+```
 
-Join our community of developers creating universal apps.
+Production checks:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run typecheck
+npm run build
+npm run preview
+```
+
+## Current boundaries
+
+- `lookup-tables/english-dictionary.txt` is the single canonical dictionary asset currently retained in the repository.
+- The dictionary is not loaded into the browser yet. Lookup, normalization, chunking, and delivery rules remain design decisions.
+- `sandbox/large-number-library` is quarantined legacy JavaScript. The React application must not import from it directly.
+- Large-number functions should move into production code only after they are rewritten in TypeScript, tested, documented, and given an explicit interface.
+
+## Project status
+
+This is a foundation refactor, not a final application architecture. It establishes a clean place to build the first measurable Three Word Index prototype while preserving unresolved decisions.
