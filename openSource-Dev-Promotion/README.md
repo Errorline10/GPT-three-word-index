@@ -1,13 +1,21 @@
-# Open Source Developer Promotion
+# Three Word Index — Open Source Developer Promotion
 
-This folder will contain the promotional website and supporting materials used to introduce Three Word Index to open-source developers and attract contributors.
+This folder contains the static promotional website for open-source contributors.
 
-Initial goals:
+## Site files
 
-- Explain the project clearly to technical contributors
-- Present the open-source vision and human-only design goals
-- Highlight useful contribution areas
-- Link developers to the repository, architecture documents, and open issues
-- Provide a simple path for new contributors to get involved
+- `index.html` — page structure and content
+- `styles.css` — responsive visual design
+- `script.js` — navigation and page interactions
 
-The promotional site structure and content will be developed here.
+## Local preview
+
+Open `index.html` directly in a browser or serve this folder with a local static web server.
+
+## GitHub Pages
+
+The workflow in `.github/workflows/open-source-dev-promotion-pages.yml` publishes this folder through GitHub Pages whenever the site changes on the `main` branch.
+
+Expected address: `https://errorline10.github.io/GPT-three-word-index/`
+
+In the repository Pages settings, select **GitHub Actions** as the publishing source.
