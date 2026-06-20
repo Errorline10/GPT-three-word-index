@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Pop Up</title>
+    <link rel="stylesheet" href="keyPopUp.css" />
+    <link rel="stylesheet" href="../../styles/autocomplete.css" />
+    <script type="module">
+      import keyPopUp from "/components/keyPopUp/keyPopUp.js";
+    </script>
+  </head>
+  <body>
+    <div class="keyPopUp">
+      <div class="keyPopUp_title">Enter Seed Values</div>
+
+      <button
+        id="keyPopUp__close"
+        class="keyPopUp__close"
+        onclick="document.querySelector('.keyPopUp').style.display = 'none'"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="keyPopUp_container">
+        <div class="input-container">
+          <form autocomplete="false">
+            <label class="stacked-input">
+              <input id="myInput1" autocomplete="off" placeholder="KeyWord #1"
+            /></label>
+            <label class="stacked-input">
+              <input id="myInput2" autocomplete="off" placeholder="KeyWord #2"
+            /></label>
+            <label class="stacked-input"
+              ><input id="myInput3" autocomplete="off" placeholder="KeyWord #3"
+            /></label>
+            <label class="stacked-input">
+              <input
+                placeholder="Pin Number"
+                pattern="[0-9]{5}"
+                id="pin"
+                max="5"
+                maxlength="5"
+                type="number"
+                placeholder="5 digit PIN"
+                onKeyPress="if(this.value.length>=5) return false;"
+              />
+            </label>
+          </form>
+        </div>
+      </div>
+
+      <button
+        id="keyPopUp__apply"
+        class="keyPopUp__apply"
+        disabled
+        onclick="document.querySelector('.keyPopUp').style.display = 'none'"
+      >
+        Generate Key
+      </button>
+    </div>
+  </body>
+</html>

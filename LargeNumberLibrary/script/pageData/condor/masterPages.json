@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "masterPages": [
+    {
+      "keyName": "Condor",
+      "keyOffSet": 0,
+      "title": "Master Page 1",
+      "description": "First Entry in the log book.",
+      "createdAt": "2025-04-04T12:01:00Z",
+      "updatedAt": "2025-04-04T12:01:00Z",
+      "fileName": "condor-1.data"
+    },
+    {
+      "keyName": "Condor",
+      "keyOffSet": 100,
+      "title": "Master Page 2",
+      "description": "Second Entry in the log book.",
+      "createdAt": "2025-04-04T12:02:00Z",
+      "updatedAt": "2025-04-04T12:02:00Z",
+      "fileName": "condor-2.data"
+    },
+    {
+      "keyName": "Condor",
+      "keyOffSet": 200,
+      "title": "Master Page 3",
+      "description": "third Entry in the log book.",
+      "createdAt": "2025-04-04T12:03:00Z",
+      "updatedAt": "2025-04-04T12:03:00Z",
+      "fileName": "condor-3.data"
+    }
+  ]
+}

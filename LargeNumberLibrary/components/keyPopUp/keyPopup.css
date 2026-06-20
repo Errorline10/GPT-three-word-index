@@ -1,0 +1,67 @@
+.keyPopUp {
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(157, 172, 190);
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+.keyPopUp .keyPopUp_title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0px 10px 14px;
+  text-align: left;
+}
+
+.keyPopUp .keyPopUp__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#keyPopUp__apply {
+margin: 10px auto;
+padding: 10px 20px;
+font-size: 20px;
+}
+#keyPopUp__apply:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+
+.keyPopUp_container .input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.keyPopUp_container form label {
+  display: block;
+}
+.keyPopUp_container form input {
+  width: 85%;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px 10px;
+  background-color: rgb(225, 225, 235);
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.keyPopUp_container form input:focus {
+  outline: none;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.533);
+}
+

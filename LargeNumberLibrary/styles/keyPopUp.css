@@ -1,0 +1,88 @@
+.keyPopUp {
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(64, 68, 63, 0.8);
+    border: 1px solid #000000;
+    border-radius: 10%;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+.keyPopUp h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.keyPopUp .description {
+    margin: 10px 0;
+    font-size: 16px;
+}
+/* make the .keyPopUp drop down from the top of the screen */
+.keyPopUp {
+    animation: dropDown 0.5s ease-in-out;
+}
+
+@keyframes dropDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.keyPopUp__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+.keyPopUp__apply {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    background-color: #4e9742a3;
+    border-color: rgba(29, 168, 34, 0.481);
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+}
+
+#pinKeys{
+    font-size:"50px";
+    font-weight: bold;
+}
+
+.input-container {
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+.stacked-input {
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 10px;
+}
+.stacked-input input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
