@@ -151,7 +151,7 @@
   color: var(--ink-strong);
 }
 
-.addressBuilder button {
+.submitButton {
   width: 100%;
   min-height: 3rem;
   margin-top: 1rem;
@@ -163,7 +163,7 @@
   cursor: pointer;
 }
 
-.addressBuilder button:hover {
+.submitButton:hover {
   background: var(--accent-strong);
 }
 

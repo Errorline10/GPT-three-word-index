@@ -1,11 +1,19 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 
+import {
+  AutocompleteInput,
+  type AutocompleteSelection,
+} from './components/AutocompleteInput/AutocompleteInput';
 import styles from './App.module.css';
 
-const initialWords = ['human', 'first', 'space'];
+const initialWords: AutocompleteSelection[] = ['human', 'first', 'space'].map((word) => ({
+  word,
+  dictionaryIndex: null,
+}));
 
-function buildAddress(words: string[]): string | null {
-  const cleanWords = words.map((word) => word.trim());
+function buildAddress(words: AutocompleteSelection[]): string | null {
+  const cleanWords = words.map(({ word }) => word.trim());
 
   if (cleanWords.some((word) => word.length === 0)) {
     return null;
@@ -19,9 +27,9 @@ export default function App() {
   const [address, setAddress] = useState(buildAddress(initialWords));
   const [message, setMessage] = useState('Prototype address preview');
 
-  function updateWord(index: number, value: string) {
+  function updateWord(index: number, selection: AutocompleteSelection) {
     setWords((currentWords) =>
-      currentWords.map((word, wordIndex) => (wordIndex === index ? value : word)),
+      currentWords.map((word, wordIndex) => (wordIndex === index ? selection : word)),
     );
   }
 
@@ -70,20 +78,21 @@ export default function App() {
             <fieldset>
               <legend>Preview a three-word address</legend>
               <div className={styles.wordFields}>
-                {words.map((word, index) => (
-                  <label key={index}>
-                    <span>Word {index + 1}</span>
-                    <input
-                      value={word}
-                      onChange={(event) => updateWord(index, event.target.value)}
-                      autoComplete="off"
-                    />
-                  </label>
+                {words.map((selection, index) => (
+                  <AutocompleteInput
+                    id={`word-${index + 1}`}
+                    key={index}
+                    label={`Word ${index + 1}`}
+                    selection={selection}
+                    onChange={(nextSelection) => updateWord(index, nextSelection)}
+                  />
                 ))}
               </div>
             </fieldset>
 
-            <button type="submit">Build preview</button>
+            <button className={styles.submitButton} type="submit">
+              Build preview
+            </button>
 
             <div className={styles.addressOutput} aria-live="polite">
               <span>{message}</span>
@@ -101,15 +110,22 @@ export default function App() {
           <div className={styles.cardGrid}>
             <article>
               <h3>React application</h3>
-              <p>Browser-first TypeScript code lives under <code>src/</code> and builds with Vite.</p>
+              <p>
+                Browser-first TypeScript code lives under <code>src/</code> and builds with Vite.
+              </p>
             </article>
             <article>
               <h3>Lookup tables</h3>
-              <p>One canonical dictionary asset is isolated under <code>lookup-tables/</code>.</p>
+              <p>
+                One canonical dictionary asset is isolated under <code>lookup-tables/</code>.
+              </p>
             </article>
             <article>
               <h3>Migration sandbox</h3>
-              <p>The legacy large-number arithmetic remains available without entering production code.</p>
+              <p>
+                The legacy large-number arithmetic remains available without entering production
+                code.
+              </p>
             </article>
           </div>
         </section>
@@ -118,8 +134,9 @@ export default function App() {
           <p className={styles.eyebrow}>Next measurable prototype</p>
           <h2 id="next-step-title">Define one directory manifest and one content block.</h2>
           <p>
-            Dictionary normalization, lookup delivery, sequence generation, and route semantics
-            remain explicit design decisions. This foundation does not silently decide them.
+            The autocomplete now exercises the canonical dictionary in the browser. Production
+            normalization, chunking, sequence generation, and route semantics remain explicit
+            design decisions.
           </p>
         </section>
       </main>
