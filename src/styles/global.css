@@ -1,0 +1,29 @@
+html {
+  min-width: 320px;
+  background: var(--page);
+  color: var(--ink);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 85% 4%, rgba(7, 93, 255, 0.09), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0, var(--page) 38rem);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(7, 93, 255, 0.35);
+  outline-offset: 3px;
+}
