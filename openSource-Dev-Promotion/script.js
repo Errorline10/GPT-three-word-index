@@ -7,6 +7,7 @@
   const year = document.querySelector('[data-year]');
   const blockButtons = document.querySelectorAll('[data-block]');
   const blockOutput = document.querySelector('[data-block-output]');
+  const pillGroups = document.querySelectorAll('.word-pills');
 
   const closeNavigation = () => {
     if (!navToggle || !nav) return;
@@ -62,6 +63,16 @@
     });
   });
 
+  pillGroups.forEach((group) => {
+    const pills = [...group.querySelectorAll('span')];
+    group.addEventListener('pointermove', (event) => {
+      pills.forEach((pill) => pill.classList.toggle('is-lit', event.target === pill));
+    });
+    group.addEventListener('pointerleave', () => {
+      pills.forEach((pill) => pill.classList.remove('is-lit'));
+    });
+  });
+
   if (year) year.textContent = new Date().getFullYear().toString();
 
   const revealItems = document.querySelectorAll('.reveal');
@@ -76,7 +87,7 @@
         entry.target.classList.add('is-visible');
         currentObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px' });
 
     revealItems.forEach((item) => observer.observe(item));
   }
