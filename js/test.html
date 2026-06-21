@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Digit Stream Test</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      body {
+        margin: 0;
+        background: #f6f7f9;
+        color: #17191f;
+      }
+
+      main {
+        width: min(960px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: #515866;
+      }
+
+      section {
+        margin-top: 20px;
+        border: 1px solid #d8dde6;
+        border-radius: 8px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 14px 16px;
+        border-bottom: 1px solid #e6e9ef;
+        font-size: 1rem;
+      }
+
+      pre {
+        margin: 0;
+        padding: 16px;
+        overflow: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 0.95rem;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 0 12px;
+        border: 1px solid #bfdbc7;
+        border-radius: 999px;
+        background: #ecf8ef;
+        color: #17602b;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Digit Stream Test</h1>
+      <p>Plain script-tag examples using <code>digit-stream.global.js</code>.</p>
+      <div class="status" id="status">Running examples...</div>
+
+      <section>
+        <h2>Stream Buffer</h2>
+        <pre id="stream-output"></pre>
+      </section>
+
+      <section>
+        <h2>Spaced Keys</h2>
+        <pre id="key-output"></pre>
+      </section>
+
+      <section>
+        <h2>XOR Round Trip</h2>
+        <pre id="xor-output"></pre>
+      </section>
+    </main>
+
+    <script src="./digit-stream.global.js"></script>
+    <script>
+      const stream = DigitStream.createDigitStream({
+        seed: '123456789123456789',
+        chunkSize: 64,
+      });
+
+      stream.generate(256);
+
+      const first64 = stream.read(0, 64);
+      const next32 = stream.read(64, 32);
+      const every20th = stream.readEvery(20, 16);
+      const every100th = stream.readEvery(100, 8);
+      const message = 'Three Word Index content block';
+      const encoded = DigitStream.xorDigitKey(message, every20th);
+      const decoded = DigitStream.xorDigitKey(encoded, every20th);
+
+      document.getElementById('stream-output').textContent = [
+        `Seed: ${stream.getSeed()}`,
+        `Buffer length: ${stream.length()}`,
+        `First 64 digits: ${first64}`,
+        `Next 32 digits: ${next32}`,
+      ].join('\n');
+
+      document.getElementById('key-output').textContent = [
+        `Every 20th digit, 16 digits: ${every20th}`,
+        `Every 100th digit, 8 digits: ${every100th}`,
+      ].join('\n');
+
+      document.getElementById('xor-output').textContent = [
+        `Original: ${message}`,
+        `Encoded char codes: ${Array.from(encoded, (character) => character.charCodeAt(0)).join(', ')}`,
+        `Decoded: ${decoded}`,
+        `Round trip successful: ${decoded === message}`,
+      ].join('\n');
+
+      document.getElementById('status').textContent = 'Examples complete';
+    </script>
+  </body>
+</html>
