@@ -3,41 +3,109 @@ export interface DictionarySuggestion {
   index: number;
 }
 
-interface LoadedDictionary {
-  words: string[];
-  positionsByFirstCharacter: Map<string, number[]>;
+interface DictionaryChunk {
+  default: {
+    data: string[];
+  };
 }
 
-let dictionaryPromise: Promise<LoadedDictionary> | null = null;
+type DictionaryChunkKey =
+  | '1'
+  | 'a'
+  | 'b'
+  | 'c'
+  | 'd'
+  | 'e'
+  | 'f'
+  | 'g'
+  | 'h'
+  | 'i'
+  | 'j'
+  | 'k'
+  | 'l'
+  | 'm'
+  | 'n'
+  | 'o'
+  | 'p'
+  | 'q'
+  | 'r'
+  | 's'
+  | 't'
+  | 'u'
+  | 'v'
+  | 'w'
+  | 'x'
+  | 'y'
+  | 'z';
 
-async function loadDictionary(): Promise<LoadedDictionary> {
-  if (!dictionaryPromise) {
-    dictionaryPromise = import('../../lookup-tables/english-dictionary.txt?raw').then(
-      ({ default: dictionaryText }) => {
-        const words = dictionaryText
-          .split(/\r?\n/)
-          .map((word) => word.trim())
-          .filter(Boolean);
-        const positionsByFirstCharacter = new Map<string, number[]>();
+interface DictionaryChunkDefinition {
+  fileName: string;
+}
 
-        words.forEach((word, index) => {
-          const firstCharacter = word[0]?.toLowerCase();
+const chunkModules = import.meta.glob<DictionaryChunk>(
+  '../../lookup-tables/english-dictionary/*.js',
+);
 
-          if (!firstCharacter) {
-            return;
-          }
+const dictionaryChunks: Record<DictionaryChunkKey, DictionaryChunkDefinition> = {
+  '1': { fileName: '1.js' },
+  a: { fileName: 'a.js' },
+  b: { fileName: 'b.js' },
+  c: { fileName: 'c.js' },
+  d: { fileName: 'd.js' },
+  e: { fileName: 'e.js' },
+  f: { fileName: 'f.js' },
+  g: { fileName: 'g.js' },
+  h: { fileName: 'h.js' },
+  i: { fileName: 'i.js' },
+  j: { fileName: 'j.js' },
+  k: { fileName: 'k.js' },
+  l: { fileName: 'l.js' },
+  m: { fileName: 'm.js' },
+  n: { fileName: 'n.js' },
+  o: { fileName: 'o.js' },
+  p: { fileName: 'p.js' },
+  q: { fileName: 'q.js' },
+  r: { fileName: 'r.js' },
+  s: { fileName: 's.js' },
+  t: { fileName: 't.js' },
+  u: { fileName: 'u.js' },
+  v: { fileName: 'v.js' },
+  w: { fileName: 'w.js' },
+  x: { fileName: 'x.js' },
+  y: { fileName: 'y.js' },
+  z: { fileName: 'z.js' },
+};
 
-          const positions = positionsByFirstCharacter.get(firstCharacter) ?? [];
-          positions.push(index);
-          positionsByFirstCharacter.set(firstCharacter, positions);
-        });
+const chunkCache = new Map<DictionaryChunkKey, Promise<string[]>>();
 
-        return { words, positionsByFirstCharacter };
-      },
-    );
+function getDictionaryChunkKey(query: string): DictionaryChunkKey {
+  const firstCharacter = query[0]?.toLowerCase();
+
+  if (firstCharacter && /^[a-z]$/.test(firstCharacter)) {
+    return firstCharacter as DictionaryChunkKey;
   }
 
-  return dictionaryPromise;
+  return '1';
+}
+
+async function loadDictionaryChunk(chunkKey: DictionaryChunkKey): Promise<string[]> {
+  const cachedChunk = chunkCache.get(chunkKey);
+
+  if (cachedChunk) {
+    return cachedChunk;
+  }
+
+  const chunkPath = `../../lookup-tables/english-dictionary/${dictionaryChunks[chunkKey].fileName}`;
+  const loadChunk = chunkModules[chunkPath];
+
+  if (!loadChunk) {
+    throw new Error(`Dictionary chunk "${chunkKey}" is not available.`);
+  }
+
+  const chunkPromise = loadChunk().then((chunk) => chunk.default.data);
+  chunkCache.set(chunkKey, chunkPromise);
+
+  return chunkPromise;
 }
 
 export async function getDictionarySuggestions(
@@ -50,16 +118,15 @@ export async function getDictionarySuggestions(
     return [];
   }
 
-  const dictionary = await loadDictionary();
-  const candidatePositions =
-    dictionary.positionsByFirstCharacter.get(normalizedQuery[0]) ?? [];
+  const chunkKey = getDictionaryChunkKey(normalizedQuery);
+  const words = await loadDictionaryChunk(chunkKey);
   const suggestions: DictionarySuggestion[] = [];
 
-  for (const index of candidatePositions) {
-    const word = dictionary.words[index];
+  for (const [chunkIndex, word] of words.entries()) {
+    const normalizedWord = word.toLowerCase();
 
-    if (word.toLowerCase().startsWith(normalizedQuery)) {
-      suggestions.push({ word, index });
+    if (normalizedWord.startsWith(normalizedQuery)) {
+      suggestions.push({ word, index: chunkIndex });
 
       if (suggestions.length >= limit) {
         break;
